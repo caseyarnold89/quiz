@@ -1,6 +1,8 @@
 angular
     .module('quizApp')
     .controller('homeCtrl', function($scope, quizList) {
-        console.log(pastQuizList);
+        
+        var pastQuizList = "Test"
+        
         $scope.quizzes = quizList;
     })
