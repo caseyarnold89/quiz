@@ -2,6 +2,16 @@ angular
 
     .module('quizApp', ['ui.router'])
     
+    
+    .run(function ($rootScope, $state) {        
+       $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+           if(toState.name === 'quiz') {
+               event.preventDefault();
+               $state.go('quiz.view', toParams)
+           }
+       })
+   })
+    
     .config(function($stateProvider, $urlRouterProvider){
         
         $urlRouterProvider.otherwise('/');
